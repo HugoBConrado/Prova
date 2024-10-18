@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner Scanner = new Scanner(System.in);
+
+        //Variáveis
+        
+        
+        String[] AlimentoP = {"Fruta", "Verdura", "Legume"};
+        String[] AlimentoNP = {"Arroz", "Feijão", "Macarrão"};
+        String[] Higiene = {"Sabonete", "Escova de dente", "Pasta de dente"};
+        int numCaridade = 0;
+        int[] quantidadePereciveis = new int[3];
+        int[] quantidadeNaoPereciveis = new int[3];
+        int[] quantidadeHigiene = new int[3];
+
+        
+        //Entrada para quantidade de instituições de caridades
+        System.out.println("Digite o número de instituições de caridades que receberão alimentos:");
+        numCaridade = Scanner.nextInt();
+
+        //Entrada para cada tipo de alimento
+        for(int i = 0; i < 3; i++){
+        System.out.print("Digite quantos alimentos perecíveis serão doados de " + AlimentoP[i] +   ":");
+        quantidadePereciveis[i] = Scanner.nextInt();
+        }
+        for(int i = 0; i < 3; i++){
+        System.out.print("Digite quantos alimentos não perecíveis serão doados de " + AlimentoNP[i] + ":");
+        quantidadeNaoPereciveis[i] = Scanner.nextInt();
+        }
+        for(int i = 0; i < 3; i++){
+        System.out.println("Digite quantos produtos de higiene serão doados de " + Higiene[i] + ":");
+        quantidadeHigiene[i] = Scanner.nextInt();
+        }    
+    
+       
+        // Distribuição dos alimentos entre as instituições de caridade
+        System.out.println("\nDistribuindo alimentos para as instituições de caridade:\n");
+
+        // Distribuição de alimentos perecíveis
+        for (int i = 0; i < 3; i++) {
+            int porInstituicao = quantidadePereciveis[i] / numCaridade;
+            int sobra = quantidadePereciveis[i] % numCaridade;
+            System.out.println(AlimentoP[i] + ": Cada instituição receberá " + porInstituicao + " unidades. " +
+                               "Restante a ser distribuído: " + sobra);
+        }
+
+        // Distribuição de alimentos não perecíveis
+        for (int i = 0; i < 3; i++) {
+            int porInstituicao = quantidadeNaoPereciveis[i] / numCaridade;
+            int sobra = quantidadeNaoPereciveis[i] % numCaridade;
+            System.out.println(AlimentoNP[i] + ": Cada instituição receberá " + porInstituicao + " unidades. " +
+                               "Restante a ser distribuído: " + sobra);
+        }
+
+        // Distribuição de produtos de higiene
+        for (int i = 0; i < 3; i++) {
+            int porInstituicao = quantidadeHigiene[i] / numCaridade;
+            int sobra = quantidadeHigiene[i] % numCaridade;
+            System.out.println(Higiene[i] + ": Cada instituição receberá " + porInstituicao + " unidades. " +
+                               "Restante a ser distribuído: " + sobra);
+                        }
+                    }
+                
+            }
+        
+       
