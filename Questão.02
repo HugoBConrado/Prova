@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner Scanner = new Scanner(System.in);
+
+        //Entrada
+        System.out.println("Digite o preço do produto que você gostaria de importar:");
+        double ValorProduto = Scanner.nextDouble();
+        if(ValorProduto <=0){
+            System.out.println("Valor inválido, tente novamente mais tarde.");
+        return;
+        }
+        
+        //Processamento
+        System.out.println("Escolha o frete que você gostaria:");
+        System.out.println("1 - Frete demorado taxa de 10% do valor do produto, 60 dias para entrega");
+        System.out.println("2 - Frete médio taxa de 15% do valor do produto, 30 dias para entrega");
+        System.out.println("3 - Frete rápido taxa de 20% do valor do produto, 20 dias para entrega");
+        int opcaoFrete = Scanner.nextInt();
+
+        // Variáveis para armazenar as taxas e mensagem do tipo de frete
+        double taxaFrete = 0;
+        String freteMsn = "";
+
+        switch (opcaoFrete) {
+                    case 1:
+                        taxaFrete = ValorProduto * 0.10;  //Frete demorado
+                        freteMsn = "Frete demorado escolhido!";
+                        break;
+                    case 2:
+                        taxaFrete = ValorProduto * 0.15;  //Frete médio
+                        freteMsn = "Frete médio escolhido!";
+                        break;
+                    case 3:
+                        taxaFrete = ValorProduto * 0.20;  //Frete rápido
+                        freteMsn = "Frete rápido escolhido!";
+                        break;
+                    default:
+                        System.out.println("Opção de frete inválida, tente novamente mais tarde.");
+                        return;  // Encerra o programa
+                }
+
+                //Calcular a taxa de importação
+                double taxaImportacao = ValorProduto * 0.60;
+
+                //Calcular o valor final do produto
+                double valorFinal = ValorProduto + taxaImportacao + taxaFrete;
+
+                //Imprimir qual frete foi escolhido
+                System.out.println(freteMsn);
+
+                //Imprimir o valor da taxa de importação
+                System.out.printf("Taxa de importação: R$ %.2f%n", taxaImportacao);
+
+                //Imprimir o valor do frete
+                System.out.printf("Valor do frete: R$ %.2f%n", taxaFrete);
+
+                //Imprimir o valor do produto final
+                System.out.printf("Valor final da importação: R$ %.2f%n", valorFinal);
+
+                //Fechar o scanner
+                Scanner.close();
+            }
+        }
+        
+        
+        
+        
+        
+                        
+                    
+                
+                
+            
+        
+    
+   
+            
+        
+       
